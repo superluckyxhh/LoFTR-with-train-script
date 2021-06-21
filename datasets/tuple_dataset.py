@@ -24,7 +24,7 @@ class TupleDataset:
         return self.tuple_transform(items)
 
 
-class CovisDataset:
+class ConvisDataset:
     def __init__(
         self, item_dataset, pairs, scale, bins=False, th=4,
     ):

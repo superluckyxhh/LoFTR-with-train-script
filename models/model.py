@@ -11,7 +11,7 @@ from common.functions import *
 from common.nest import NestedTensor
 from models.backbone import ResUNet
 from models.loftr import LoFTRModule
-from models.position import PositionEmbedding2D, PositionEmbeding1D
+from models.position import PositionEmbedding2D, PositionEmbedding1D
 
 def log_sinkhorn_iterations(Z, log_mu, log_nu, iters: int):
     """ Perform Sinkhorn Normalization in Log-space for stability"""
@@ -63,7 +63,7 @@ class MatchingNet(nn.Module):
 
         self.backbone = ResUNet(backbone_name, d_coarse_model, d_fine_model)
         self.position2d = PositionEmbedding2D(d_coarse_model)
-        self.position1d = PositionEmbeding1D(d_fine_model, max_len=window**2)
+        self.position1d = PositionEmbedding1D(d_fine_model, max_len=window**2)
 
         self.coarse_matching = LoFTRModule(
             d_coarse_model, n_heads=n_heads,
@@ -175,7 +175,7 @@ class MatchingNet(nn.Module):
             axes_lengths = {
                 'B': B, 'H0': hc0, 'W0': wc0, 'H1': hc1, 'W1':wc1
             }
-            # TODO: mutual_nearest_neighbor_match
+            
             matches, mconf = mutual_nearest_neighbor_match(
                 scores, axes_lengths,
                 border=self.border,

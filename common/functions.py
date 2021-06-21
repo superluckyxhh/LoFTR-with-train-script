@@ -29,7 +29,7 @@ def mask_border_with_padding(m, bd, v, p_m0, p_m1):
         m[b_idx, :, :, h1-bd:] = v
 
 @torch.no_grad()
-def matual_nearest_neighbor_match(
+def mutual_nearest_neighbor_match(
     scores,
     axes_lengths: dict,
     border: int,

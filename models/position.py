@@ -35,7 +35,7 @@ class PositionEmbedding2D(nn.Module):
     def forward(self, x: torch.Tensor):
         return self.pe[:, :, :x.size(2), :x.size(3)]
 
-class PositionEmbeding1D(nn.Module):
+class PositionEmbedding1D(nn.Module):
     def __init__(
         self,
         d_model: int,

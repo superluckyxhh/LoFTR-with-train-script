@@ -1,7 +1,7 @@
 import torch
 import abc
 import sys
-from torch.dimcheck import dimchecked
+from submodules.torchdimcheck.torch_dimcheck import dimchecked
 
 if sys.version_info >= (3, 7):
     class NpArray:

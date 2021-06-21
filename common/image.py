@@ -97,7 +97,7 @@ class Image:
     def pad(self, size):
         bitmap = _pad(self.bitmap, size, value=0)
         depth = _pad(self.depth, size, value=float('NaN'))
-        mask = _pad(self.mask[None], size, value=0).[0]
+        mask = _pad(self.mask[None], size, value=0)[0]
 
         return Image(self.K, self.R, self.T, bitmap, depth, mask)
 

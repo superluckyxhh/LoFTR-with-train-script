@@ -2,7 +2,7 @@ import random
 import warnings
 
 from torch.utils.data import ConcatDataset
-from common import DataError
+from common import DatasetError
 
 class LimitableDataset:
     def __init__(self, inner, warn=True):
@@ -25,7 +25,7 @@ class LimitableDataset:
             if self.warn:
                 warnings.warn(msg)
             else:
-                raise DataError(msg)
+                raise DatasetError(msg)
 
         self._yieldable = yieldable[:m]
 
